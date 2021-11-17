@@ -108,7 +108,7 @@ A tabela de dados analíticos serão disponibilizados na versão privada do rela
 
 ## Desfechos primário e secundários
 
-O desfecho primário está definido como a classificação entre deputados evangélicos pertencentes a alguma corporação pentecostal.
+O desfecho primário está definido como a combinação de hiperparâmetros k, métrica de distância e método de ligação que gera maximiza a silhueta média do agrupamento hierárquico.
 
 ## Covariáveis
 
