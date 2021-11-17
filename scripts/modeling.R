@@ -86,7 +86,7 @@ final_top <- sil %>%
   slice_max(sil, n = 10)
 
 # resultado rejeitado
-s.rej <- spit_sil(k = final_top[1, 1], dist = final_top[1, 2], method = final_top[1, 3])
+final_sil.rej <- spit_sil(k = final_top[1, 1], dist = final_top[1, 2], method = final_top[1, 3])
 
 # linha a ser usada (top3)
 final_row <- 5
@@ -101,13 +101,13 @@ final_m <- final_top[final_row, 3]
 # analytical$cluster <- hc %>%
 #   cutree(k = final_k)
 
-s <- spit_sil(k = final_k, dist = final_d, method = final_m)
+final_sil <- spit_sil(k = final_k, dist = final_d, method = final_m)
 
 # diagnosticos ------------------------------------------------------------
 
 # resultado final
-# s <- analytical$cluster %>% silhouette( dist = dm)
-s %>% summary()
+# final_sil <- analytical$cluster %>% silhouette( dist = dm)
+s <- final_sil %>% summary()
 
 # resultado rejeitado
-s.rej %>% summary()
+s.rej <- final_sil.rej %>% summary()

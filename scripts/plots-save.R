@@ -16,9 +16,9 @@ units <- "cm"
 ggsave(filename = "figures/hiper.png", plot = gg.hiper, height = 16, width = 16, units = units)
 
 png("figures/sil_final.png", width = 16, height = 16, units = units, res = 600)
-s %>% plot(main="")
+final_sil %>% plot(main="")
 dev.off()
 
 png("figures/sil_rej.png", width = 16, height = 12, units = units, res = 600)
-s.rej %>% plot(main="")
+final_sil.rej %>% plot(main="")
 dev.off()
