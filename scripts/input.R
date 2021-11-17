@@ -68,12 +68,15 @@ data.raw <- data.raw %>%
 analytical <- data.raw %>%
   # select analytic variables
   select(
-    !starts_with(c("perc", "receita_")),
-    -nome,
-    -igreja,
-    -categoria,
-    -filiados,
-    # -primeira,
+    id,
+    corp_pentecostal,
+    receita_agp,
+    receita_outras,
+    num_votos,
+    capilaridade,
+    posicao,
+    decil_filiados,
+    decil_deputados,
   )
 
 # mockup of analytical dataset for SAP and public SAR
