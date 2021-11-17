@@ -80,20 +80,20 @@ spit_sil <- function(data = analytical, k, dist, method) {
 
 sil <- read_csv("figures/sil.csv")
 
-# top 3 silhuetas
-final_3 <- sil %>%
+# top 10 silhuetas
+final_top <- sil %>%
   filter(!(meth %in% c("centroid", "median")) ) %>%
-  slice_max(sil, n = 3)
+  slice_max(sil, n = 10)
 
 # resultado rejeitado
-s.rej <- spit_sil(k = final_3[1, 1], dist = final_3[1, 2], method = final_3[1, 3])
+s.rej <- spit_sil(k = final_top[1, 1], dist = final_top[1, 2], method = final_top[1, 3])
 
 # linha a ser usada (top3)
 final_row <- 3
 
-final_k <- final_3[final_row, 1]
-final_d <- final_3[final_row, 2]
-final_m <- final_3[final_row, 3]
+final_k <- final_top[final_row, 1]
+final_d <- final_top[final_row, 2]
+final_m <- final_top[final_row, 3]
 
 # dm <- spit_dist(dist = final_d)
 # hc <- dm %>%
