@@ -2,7 +2,7 @@
 title: "Plano Analítico para Otimização de hiperparâmetros de clusterização hierárquica para identificação de deputados evangélicos de corporações pentecostais eleitos em 2018"
 subtitle: 'DOCUMENTO: SAP-2021-017-JG-v01'
 author: '**De:** Felipe Figueiredo **Para:** Josir Gomes'
-# date: yyyy-mm-dd
+date: 2021-11-16
 output:
   html_document:
     fig_caption: yes
@@ -53,19 +53,22 @@ kable(history)
 
 # Lista de abreviaturas
 
-- d: Tamanho de efeito D de Cohen
-- DP: Desvio padrão
-- IC: Intervalo de confiança
-- IIQ: Intervalo Interquartílico
-- IMC: Índice de massa corpórea
+- AGP: receita que veio do partido ao invés de apoiadores privados (empresariais ou não)
 
 # Contexto
 
+Dados de deputados federais evangélicos, eleitos em 2018, com labels identificando quais pertencem a coporações pentecostais.
+As corporações pentecostais foram definidas como as entidades evangélicas com interesse predominantemente financeiro e/ou político, diferenciando-se das instituições religiosas tradicionais.
+
+As corporações pentecostais foram previamente identificadas na base de dados recebida.
+
 ## Objetivos
 
-Identificar visualmente a seleção de hiperparâmetros que maximiza a silhueta média (global) do agrupamento hierárquico.
+Identificar a seleção de hiperparâmetros que maximiza a silhueta média (global) do agrupamento hierárquico de deputados federais evangélicos.
 
 ## Hipóteses
+
+O agrupamento hierárquico pode ser usado para identificar os deputados evangélicos que pertencem a uma corporação pentecostal.
 
 # Dados
 
@@ -75,7 +78,18 @@ source("scripts/input.R", encoding = 'UTF-8')
 
 ## Dados brutos
 
+Base de dados recebida contendo características dos deputados federais eleitos em 2018.
+
 ## Tabela de dados analíticos
+
+As receitas recebidas pelos deputados evangélicos serão divididas entre duas fontes: AGP e outras.
+As outras receitas serão a soma total das receitas recebidas subtraída da receita AGP.
+
+Todas as variáveis numéricas serão escalonadas para a clusterização de modo a manter os valores observados em um intervalo de amplitude de aproximada 2 unidades (**SAR-2021-011-JG-v01**).
+Todas as receitas serão escalonadas por milhão de reais.
+O número de votos séra escalonado por milhão de votos.
+O posicionamento político varia de -1 a 1 e portanto já está limitado a um intervalo de amplitude 2.
+A capilaridade e os decis serão mantidos na escala original.
 
 Todas as variáveis da tabela de dados analíticos foram identificadas de acordo com as descrições das variáveis, e os valores foram identificados de acordo com o dicionário de dados providenciado.
 Estas identificações possibilitarão a criação de tabelas de resultados com qualidade de produção final.
@@ -94,7 +108,12 @@ A tabela de dados analíticos serão disponibilizados na versão privada do rela
 
 ## Desfechos primário e secundários
 
+O desfecho primário está definido como a combinação de hiperparâmetros k, métrica de distância e método de ligação que maximiza a silhueta média do agrupamento hierárquico.
+
 ## Covariáveis
+
+As seguintes características dos deputados federais serão incluídas na análise: Receitas (divididas em AGP e outras fontes), número de votos recebidos, posicionamento político e capilaridade.
+As seguintes características dos partidos serão consideradas para inclusão na análise: decil do número de deputados eleitos e decil do número de filiados.
 
 # Métodos estatísticos
 
@@ -102,60 +121,62 @@ A tabela de dados analíticos serão disponibilizados na versão privada do rela
 
 ### Análise descritiva
 
-O perfil epidemiológico dos participantes do estudo será descrito na baseline.
-As características demográficas
-(sexo, idade e IMC)
-e clínicas
-<!-- ( [vars] ) -->
-serão descritas como
-média (DP)
-<!-- mediana (IIQ) -->
-ou frequência e proporção (%), conforme apropriado.
-As distribuições das caracerísticas dos participantes serão resumidas em tabelas e visualizadas em gráficos exploratórios
+N/A.
 
 ### Análise inferencial
 
-Todas as comparações entre os grupos serão avaliadas como análises univariadas.
-Variáveis contínuas serão comparadas entre os grupos com o
-teste t de grupos independentes com a correção de Welch.
-<!-- teste t pareado com a correção de Welch. -->
-<!-- teste de Wilcoxon. -->
-Diferenças nas distribuições de variáveis categóricas serão avaliadas com o teste
-exato de Fisher.
-<!-- qui-quadrado. -->
-<!-- McNemar. -->
-
-<!-- Todas as análises inferenciais serão realizadas com base nos modelos estatísticos (descritos na próxima seção). -->
+N/A.
 
 ### Modelagem estatística
 
+Modelos de clusters hierárquico serão ajustados aos dados numéricos.
+Será criado um algoritmo para percorrer o espaço de hiperparâmetros e calcular a silhueta de cada combinação.
+
+Os índices de silhueta média serão visualizados em um gráfico de dispersão (silhueta por k).
+Cada ponto será identificado pela métrica de distância e método de ligação (mapeados em cores e formas) para identificação visual da qualidade dos agrupamentos avaliados.
+A combinação ótima será destacada textualmente, e outras combinações com valores de silhueta mais altos podem ser identificados.
+
+Hiperparâmetros a ser avaliados:
+
+- Número de clusters k: variando de 2 a 10
+- Métricas de distância
+    - Norma 2 (Euclidiana)
+    - Norma 1 (Manhattan)
+    - Norma infinito (máxima)
+    - Norma p (Minkowski) com p = 0.5 e 1.5
+    - Canberra
+- Métodos de ligação
+    - Completa (máximo)
+    - Single (mínimo)
+    - Média (UPGMA)
+    - Ward sem critério de Ward (1963)
+    - Ward com critério de Ward (1963)
+    - Mediana \*
+    - Centróide \*
+
+\* Os métodos de ligação por mediana e centróide podem gerar inversões na clusterização, e não serão selecionados na otimização.
+Sua inclusão no algoritmo de otimização terá apenas fins informativos.
+
 ## Significância e Intervalos de Confiança
 
-Todas as análises serão realizadas ao nível de significância de 5%.
-Todos os testes de hipóteses e intervalos de confiança calculados serão
-bicaudais.
-<!-- unicaudais à esquerda. -->
-<!-- unicaudais à direita. -->
+N/A.
 
 ## Tamanho da amostra e Poder
 
-
-N/A
+N/A.
 
 ## Softwares utilizados
 
 Esta análise será realizada utilizando-se o software `R` versão `r getRversion()`.
 
-<!-- # Resultados -->
-
 # Observações e limitações
 
-<!-- # Conclusões -->
+N/A.
 
 # Referências
 
+- **SAR-2021-011-JG-v01** -- Clusterização hierárquica para determinação do número ótimo de clusters de deputados federais evangélicos eleitos em 2018
 - **SAR-2021-017-JG-v01** -- Otimização de hiperparâmetros de clusterização hierárquica para identificação de deputados evangélicos de corporações pentecostais eleitos em 2018
-<!-- - Cohen, J. (1988). Statistical power analysis for the behavioral sciences (2nd Ed.). New York: Routledge. -->
 
 # Apêndice
 
