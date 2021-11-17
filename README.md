@@ -1,22 +1,13 @@
-<!-- Instruções -->
+# Otimização de hiperparâmetros de clusterização hierárquica para identificação de deputados evangélicos de corporações pentecostais eleitos em 2018
 
-<!-- - substituir yyyy-NNN-XX -->
-<!-- - v01: substituir mmm01/mmm02 pela milestone -->
-<!-- - v02: substituir ppp01/ppp02 pelo projeto -->
-<!-- - Remover esse bloco -->
+Identificar visualmente a seleção de hiperparâmetros que maximiza a silhueta média (global) do agrupamento hierárquico.
 
-# título
-
-Objetivo
-
-Análise Estatística para PESSOA (LOCAL, aaaa)
+Análise Estatística para Josir Gomes (Doutorado IBICT/UFRJ, 2021).
 
 ## Análises realizadas
 
 1. Análise descritiva
-1. Análise inferencial
-1. Análise de poder
-1. Modelagem estatística
+1. Modelagem não-supervisionada
 
 ## Documentos
 
@@ -36,6 +27,15 @@ Análise Estatística para PESSOA (LOCAL, aaaa)
 - [Visualização online][reportviz-v01]
 - [PDF][pdf-v01]
 
+## Análise associada
+
+Esta análise está associada à outras duas, complementares.
+Aquela pode ser vista em:
+
+
+  * [Clusterização hierárquica para determinação do número ótimo de clusters de deputados federais evangélicos eleitos em 2018](https://philsf-biostat.github.io/SAR-2021-011-JG/ "Clusterização hierárquica para determinação do número ótimo de clusters de deputados federais evangélicos eleitos em 2018")
+  * [Quantificação do efeito da receita recebida na autodenominação como evangélicos em deputados federais de 2018](https://philsf-biostat.github.io/SAR-2021-012-JG/ "Quantificação do efeito da receita recebida na autodenominação como evangélicos em deputados federais de 2018")
+
 ## Portfólio
 
 Esta análise está incluída no portfólio do consultor.
@@ -45,20 +45,20 @@ Outras análises também podem ser vistas em:
 
 <!-- --- -->
 
-[sapviz-v01]: report/SAP-yyyy-NNN-XX-v01.md
-[sapviz-v02]: report/SAP-yyyy-NNN-XX-v02.md
-[sappdf-v01]: https://docs.google.com/viewer?url=https://github.com/philsf-biostat/SAR-yyyy-NNN-XX/raw/main/report/SAP-yyyy-NNN-XX-v01.pdf
-[sappdf-v02]: https://docs.google.com/viewer?url=https://github.com/philsf-biostat/SAR-yyyy-NNN-XX/raw/main/report/SAP-yyyy-NNN-XX-v02.pdf
+[sapviz-v01]: report/SAP-2021-017-JG-v01.md
+[sapviz-v02]: report/SAP-2021-017-JG-v02.md
+[sappdf-v01]: https://docs.google.com/viewer?url=https://github.com/philsf-biostat/SAR-2021-017-JG/raw/main/report/SAP-2021-017-JG-v01.pdf
+[sappdf-v02]: https://docs.google.com/viewer?url=https://github.com/philsf-biostat/SAR-2021-017-JG/raw/main/report/SAP-2021-017-JG-v02.pdf
 
-[reportviz-v01]: report/SAR-yyyy-NNN-XX-v01.md
-[reportviz-v02]: report/SAR-yyyy-NNN-XX-v02.md
-[pdf-v01]: https://docs.google.com/viewer?url=https://github.com/philsf-biostat/SAR-yyyy-NNN-XX/raw/main/report/SAR-yyyy-NNN-XX-v01.pdf
-[pdf-v02]: https://docs.google.com/viewer?url=https://github.com/philsf-biostat/SAR-yyyy-NNN-XX/raw/main/report/SAR-yyyy-NNN-XX-v02.pdf
-[docx-v01]: https://docs.google.com/viewer?url=https://github.com/philsf-biostat/SAR-yyyy-NNN-XX/raw/main/report/SAR-yyyy-NNN-XX-v01.docx
-[docx-v02]: https://docs.google.com/viewer?url=https://github.com/philsf-biostat/SAR-yyyy-NNN-XX/raw/main/report/SAR-yyyy-NNN-XX-v02.docx
+[reportviz-v01]: report/SAR-2021-017-JG-v01.md
+[reportviz-v02]: report/SAR-2021-017-JG-v02.md
+[pdf-v01]: https://docs.google.com/viewer?url=https://github.com/philsf-biostat/SAR-2021-017-JG/raw/main/report/SAR-2021-017-JG-v01.pdf
+[pdf-v02]: https://docs.google.com/viewer?url=https://github.com/philsf-biostat/SAR-2021-017-JG/raw/main/report/SAR-2021-017-JG-v02.pdf
+[docx-v01]: https://docs.google.com/viewer?url=https://github.com/philsf-biostat/SAR-2021-017-JG/raw/main/report/SAR-2021-017-JG-v01.docx
+[docx-v02]: https://docs.google.com/viewer?url=https://github.com/philsf-biostat/SAR-2021-017-JG/raw/main/report/SAR-2021-017-JG-v02.docx
 
-[releases]: https://github.com/philsf-biostat/SAR-yyyy-NNN-XX/releases/
-[milestone-v01]: https://github.com/philsf-biostat/SAR-yyyy-NNN-XX/milestone/mmm01
-[v01-project]: https://github.com/philsf-biostat/SAR-yyyy-NNN-XX/projects/ppp01
-[milestone-v02]: https://github.com/philsf-biostat/SAR-yyyy-NNN-XX/milestone/mmm02
-[v02-project]: https://github.com/philsf-biostat/SAR-yyyy-NNN-XX/projects/ppp02
+[releases]: https://github.com/philsf-biostat/SAR-2021-017-JG/releases/
+[milestone-v01]: https://github.com/philsf-biostat/SAR-2021-017-JG/milestone/mmm01
+[v01-project]: https://github.com/philsf-biostat/SAR-2021-017-JG/projects/ppp01
+[milestone-v02]: https://github.com/philsf-biostat/SAR-2021-017-JG/milestone/mmm02
+[v02-project]: https://github.com/philsf-biostat/SAR-2021-017-JG/projects/ppp02
