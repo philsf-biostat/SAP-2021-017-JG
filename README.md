@@ -1,22 +1,13 @@
-<!-- Instruções -->
-
-<!-- - substituir yyyy-NNN-XX -->
-<!-- - v01: substituir mmm01/mmm02 pela milestone -->
-<!-- - v02: substituir ppp01/ppp02 pelo projeto -->
-<!-- - Remover esse bloco -->
-
 # título
 
 Objetivo
 
-Análise Estatística para PESSOA (LOCAL, aaaa)
+Análise Estatística para Josir Gomes (Doutorado IBICT/UFRJ, 2021).
 
 ## Análises realizadas
 
 1. Análise descritiva
-1. Análise inferencial
-1. Análise de poder
-1. Modelagem estatística
+1. Modelagem não-supervisionada
 
 ## Documentos
 
@@ -35,6 +26,15 @@ Análise Estatística para PESSOA (LOCAL, aaaa)
 
 - [Visualização online][reportviz-v01]
 - [PDF][pdf-v01]
+
+## Análise associada
+
+Esta análise está associada à outras duas, complementares.
+Aquela pode ser vista em:
+
+
+  * [Clusterização hierárquica para determinação do número ótimo de clusters de deputados federais evangélicos eleitos em 2018](https://philsf-biostat.github.io/SAR-2021-011-JG/ "Clusterização hierárquica para determinação do número ótimo de clusters de deputados federais evangélicos eleitos em 2018")
+  * [Quantificação do efeito da receita recebida na autodenominação como evangélicos em deputados federais de 2018](https://philsf-biostat.github.io/SAR-2021-012-JG/ "Quantificação do efeito da receita recebida na autodenominação como evangélicos em deputados federais de 2018")
 
 ## Portfólio
 
