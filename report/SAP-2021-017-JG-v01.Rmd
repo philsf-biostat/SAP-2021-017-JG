@@ -84,7 +84,12 @@ Base de dados recebida contendo características dos deputados federais eleitos 
 
 As receitas recebidas pelos deputados evangélicos serão divididas entre duas fontes: AGP e outras.
 As outras receitas serão a soma total das receitas recebidas subtraída da receita AGP.
+
+Todas as variáveis numéricas serão escalonadas para a clusterização de modo a manter os valores observados em um intervalo de amplitude de aproximada 2 unidades.
 Todas as receitas serão escalonadas por milhão de reais.
+O número de votos séra escalonado por milhão de votos.
+O posicionamento político varia de -1 a 1 e portanto já está limitado a um intervalo de amplitude 2.
+A capilaridade e os decis serão mantidos na escala de 0 a 1.
 
 Todas as variáveis da tabela de dados analíticos foram identificadas de acordo com as descrições das variáveis, e os valores foram identificados de acordo com o dicionário de dados providenciado.
 Estas identificações possibilitarão a criação de tabelas de resultados com qualidade de produção final.
