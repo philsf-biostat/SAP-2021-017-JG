@@ -121,30 +121,11 @@ As seguintes características dos partidos serão consideradas para inclusão na
 
 ### Análise descritiva
 
-O perfil epidemiológico dos participantes do estudo será descrito na baseline.
-As características demográficas
-(sexo, idade e IMC)
-e clínicas
-<!-- ( [vars] ) -->
-serão descritas como
-média (DP)
-<!-- mediana (IIQ) -->
-ou frequência e proporção (%), conforme apropriado.
-As distribuições das caracerísticas dos participantes serão resumidas em tabelas e visualizadas em gráficos exploratórios
+N/A.
 
 ### Análise inferencial
 
-Todas as comparações entre os grupos serão avaliadas como análises univariadas.
-Variáveis contínuas serão comparadas entre os grupos com o
-teste t de grupos independentes com a correção de Welch.
-<!-- teste t pareado com a correção de Welch. -->
-<!-- teste de Wilcoxon. -->
-Diferenças nas distribuições de variáveis categóricas serão avaliadas com o teste
-exato de Fisher.
-<!-- qui-quadrado. -->
-<!-- McNemar. -->
-
-<!-- Todas as análises inferenciais serão realizadas com base nos modelos estatísticos (descritos na próxima seção). -->
+N/A.
 
 ### Modelagem estatística
 
@@ -164,7 +145,7 @@ Hiperparâmetros a ser avaliados:
     - Norma infinito (máxima)
     - Norma p (Minkowski) com p = 0.5 e 1.5
     - Canberra
-- Métodos de ligação (7 ou 8 métodos disponíveis, em duas implementações distintas)
+- Métodos de ligação
     - Completa (máximo)
     - Single (mínimo)
     - Média (UPGMA)
@@ -178,26 +159,17 @@ Sua inclusão no algoritmo de otimização terá apenas fins informativos.
 
 ## Significância e Intervalos de Confiança
 
-Todas as análises serão realizadas ao nível de significância de 5%.
-Todos os testes de hipóteses e intervalos de confiança calculados serão
-bicaudais.
-<!-- unicaudais à esquerda. -->
-<!-- unicaudais à direita. -->
+N/A.
 
 ## Tamanho da amostra e Poder
 
-
-N/A
+N/A.
 
 ## Softwares utilizados
 
 Esta análise será realizada utilizando-se o software `R` versão `r getRversion()`.
 
-<!-- # Resultados -->
-
 # Observações e limitações
-
-<!-- # Conclusões -->
 
 # Referências
 
