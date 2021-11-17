@@ -89,7 +89,7 @@ final_top <- sil %>%
 s.rej <- spit_sil(k = final_top[1, 1], dist = final_top[1, 2], method = final_top[1, 3])
 
 # linha a ser usada (top3)
-final_row <- 3
+final_row <- 5
 
 final_k <- final_top[final_row, 1]
 final_d <- final_top[final_row, 2]
