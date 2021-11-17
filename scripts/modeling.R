@@ -82,7 +82,7 @@ sil <- read_csv("figures/sil.csv")
 
 # top 10 silhuetas
 final_top <- sil %>%
-  filter(!(meth %in% c("centroid", "median")) ) %>%
+  # filter(!(meth %in% c("centroid", "median")) ) %>%
   slice_max(sil, n = 10)
 
 # resultado rejeitado
