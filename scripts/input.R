@@ -61,6 +61,9 @@ data.raw <- data.raw %>%
     total_receita = "Receita total (milhão R$)",
     posicao = "Índice de Power e Silveira-Rodrigues",
     igreja = "Nome da Igreja",
+    receita_agp = "Receita AGP (milhão R$)",
+    receita_outras = "Outras receitas (milhão R$)",
+    corp_pentecostal = "Corporação Pentecostal",
   )
 
 # analytical dataset ------------------------------------------------------
