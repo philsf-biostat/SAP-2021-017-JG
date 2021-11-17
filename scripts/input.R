@@ -39,6 +39,10 @@ data.raw <- data.raw %>%
     receita_rp = receita_rp/1000000,
     receita_ser = receita_ser/1000000,
     # capilaridade = capilaridade*10,
+  ) %>%
+  mutate(
+    # usar apenas agp e outras
+    receita_outras = total_receita - receita_agp,
   )
 
 # labels ------------------------------------------------------------------
