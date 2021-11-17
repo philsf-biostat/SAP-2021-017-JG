@@ -14,14 +14,14 @@ theme_set(
 # )
 
 gg <- ggplot(sil, aes(k, sil)) +
+  scale_y_continuous(breaks = seq(-.1, .5, .1)) +
+  scale_x_continuous(breaks = 2:10) +
   scale_color_brewer(palette = ff.pal) +
   scale_fill_brewer(palette = ff.pal)
 
 # plots -------------------------------------------------------------------
 
 gg.hiper <- gg +
-  # scale_y_continuous(breaks = seq(-.1, .5, .1)) +
   # geom_hline(yintercept = c(0, .5), col = c(ff.col), lty = 2) +
   geom_hline(yintercept = unique(final_top$sil), col = "gray80", lty = 2) +
-  scale_x_continuous(breaks = 2:10) +
   geom_jitter(aes(color = meth, shape = dist), width = .3)
