@@ -19,7 +19,7 @@ gg <- ggplot(sil, aes(k, sil)) +
 
 # plots -------------------------------------------------------------------
 
-gg +
+gg.hiper <- gg +
   # scale_y_continuous(breaks = seq(-.1, .5, .1)) +
   # geom_hline(yintercept = c(0, .5), col = c(ff.col), lty = 2) +
   geom_jitter(aes(color = meth, shape = dist), width = .1)
