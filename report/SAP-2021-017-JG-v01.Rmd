@@ -133,8 +133,8 @@ Modelos de clusters hierárquico serão ajustados aos dados numéricos.
 Será criado um algoritmo para percorrer o espaço de hiperparâmetros e calcular a silhueta de cada combinação.
 
 Os índices de silhueta média serão visualizados em um gráfico de dispersão (silhueta por k).
-Cada ponto será identificado pela métrica de distância e método de ligação (mapeados em cor e forma, respectivamente) para identificação visual da qualidade dos agrupamentos.
-A combinação ótima será identificada textualmente, e outras combinações com valores de silhueta mais altos podem ser destacados.
+Cada ponto será identificado pela métrica de distância e método de ligação (mapeados em cores e formas) para identificação visual da qualidade dos agrupamentos avaliados.
+A combinação ótima será destacada textualmente, e outras combinações com valores de silhueta mais altos podem ser identificados.
 
 Hiperparâmetros a ser avaliados:
 
