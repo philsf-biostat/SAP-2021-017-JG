@@ -1,6 +1,6 @@
 # título
 
-Objetivo
+Identificar visualmente a seleção de hiperparâmetros que maximiza a silhueta média (global) do agrupamento hierárquico.
 
 Análise Estatística para Josir Gomes (Doutorado IBICT/UFRJ, 2021).
 
