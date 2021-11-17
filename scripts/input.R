@@ -82,6 +82,9 @@ analytical <- data.raw %>%
     decil_deputados,
   )
 
+deputados <- data.raw %>%
+  select(id, nome, sexo, partido, uf, posicao, igreja, corp_pentecostal)
+
 # mockup of analytical dataset for SAP and public SAR
 analytical_mockup <- tibble( id = c( "1", "2", "3", "...", as.character(nrow(analytical)) ) ) %>%
   left_join(analytical %>% head(0), by = "id") %>%

@@ -13,4 +13,12 @@ units <- "cm"
 
 # save plots --------------------------------------------------------------
 
-ggsave(filename = "figures/outcome.png", plot = gg.outcome, height = height, width = width, units = units)
+# ggsave(filename = "figures/outcome.png", plot = gg.outcome, height = height, width = width, units = units)
+
+png("figures/sil_final.png", width = width, height = 12, units = units, res = 300)
+s %>% plot()
+dev.off()
+
+png("figures/sil_rej.png", width = width, height = 12, units = units, res = 300)
+s.rej %>% plot()
+dev.off()
