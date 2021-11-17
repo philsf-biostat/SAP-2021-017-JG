@@ -2,7 +2,7 @@
 title: "Plano Analítico para Otimização de hiperparâmetros de clusterização hierárquica para identificação de deputados evangélicos de corporações pentecostais eleitos em 2018"
 subtitle: 'DOCUMENTO: SAP-2021-017-JG-v01'
 author: '**De:** Felipe Figueiredo **Para:** Josir Gomes'
-# date: yyyy-mm-dd
+date: 2021-11-16
 output:
   html_document:
     fig_caption: yes
@@ -53,7 +53,7 @@ kable(history)
 
 # Lista de abreviaturas
 
-- AGP: receita que veio do partido ao invés de apoiadores privados (empresariais ou não);
+- AGP: receita que veio do partido ao invés de apoiadores privados (empresariais ou não)
 
 # Contexto
 
@@ -170,6 +170,8 @@ N/A.
 Esta análise será realizada utilizando-se o software `R` versão `r getRversion()`.
 
 # Observações e limitações
+
+N/A.
 
 # Referências
 
