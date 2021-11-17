@@ -10,12 +10,12 @@ data.raw <- read_csv("dataset/eleitos_2018.csv") %>%
 # data cleaning -----------------------------------------------------------
 
 data.raw <- data.raw %>%
-  #   filter() %>%
+  # apenas os evangélicos
+    filter(evangelico == 1) %>%
   select(
-    -eleito,
-  ) %>%
-  # dropar variáveis com NA que não podem ser usadas na clusterização
-  drop_na(num_votos)
+    # não precisamos mais desta variável
+    -evangelico,
+  )
 
 # data wrangling ----------------------------------------------------------
 
@@ -24,7 +24,7 @@ data.raw <- data.raw %>%
     id = as.character(id),
     primeira = factor(primeira, labels = c("Primeiro mandato", "Reeleito")),
     sexo = factor(sexo, labels = c("Masculino", "Feminino")),
-    evangelico = factor(evangelico, labels = c("Outros", "Evangélico")),
+    # evangelico = factor(evangelico, labels = c("Outros", "Evangélico")),
     igreja = fct_rev(fct_infreq(igreja)),
     total_receita = total_receita/1000000,
     num_votos = num_votos/1000000,
@@ -50,7 +50,7 @@ data.raw <- data.raw %>%
     capilaridade = "Capilaridade",
     primeira = "Releição vs primeiro mandato",
     sexo = "Sexo",
-    evangelico = "Evangélico",
+    # evangelico = "Evangélico",
     num_votos = "Votos (milhão)",
     decil_filiados = "Decil do núm. de filiados",
     decil_deputados = "Decil do núm. de deputados",
