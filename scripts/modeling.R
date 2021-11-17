@@ -53,7 +53,7 @@ spit_sil <- function(data = analytical, k, dist, method) {
 
 # espaço de hiperparâmetros -----------------------------------------------
 
-# library(foreach)
+# library(foreach) %>% suppressPackageStartupMessages()
 # 
 # sil <- foreach(d = dists, .combine = rbind) %:%
 #   foreach(k = 2:10, .combine = rbind) %:%
@@ -78,7 +78,7 @@ spit_sil <- function(data = analytical, k, dist, method) {
 
 # cluster hierárquico -----------------------------------------------------
 
-sil <- read_csv("figures/sil.csv")
+sil <- read_csv("figures/sil.csv", show_col_types = FALSE)
 
 # top 10 silhuetas
 final_top <- sil %>%

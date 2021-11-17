@@ -1,10 +1,10 @@
 # setup -------------------------------------------------------------------
-library(tidyverse)
+suppressPackageStartupMessages(library(tidyverse))
 library(labelled)
 
 # data loading ------------------------------------------------------------
 set.seed(42)
-data.raw <- read_csv("dataset/eleitos_2018.csv") %>%
+data.raw <- read_csv("dataset/eleitos_2018.csv", show_col_types = FALSE) %>%
   janitor::clean_names()
 
 # data cleaning -----------------------------------------------------------

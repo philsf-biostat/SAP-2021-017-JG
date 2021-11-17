@@ -1,6 +1,6 @@
 # setup -------------------------------------------------------------------
 library(ggplot2)
-# library(dendextend)
+# library(dendextend) %>% suppressPackageStartupMessages()
 
 ff.col <- "steelblue" # good for single groups scale fill/color brewer
 ff.pal <- "Paired"    # good for binary groups scale fill/color brewer
