@@ -15,10 +15,10 @@ units <- "cm"
 
 # ggsave(filename = "figures/outcome.png", plot = gg.outcome, height = height, width = width, units = units)
 
-png("figures/sil_final.png", width = width, height = 12, units = units, res = 300)
+png("figures/sil_final.png", width = 16, height = 16, units = units, res = 600)
 s %>% plot()
 dev.off()
 
-png("figures/sil_rej.png", width = width, height = 12, units = units, res = 300)
+png("figures/sil_rej.png", width = 16, height = 12, units = units, res = 600)
 s.rej %>% plot()
 dev.off()
