@@ -79,7 +79,23 @@ Esta análise foi realizada utilizando-se o software `R` versão `r getRversion(
 
 ## Espaço de hiperparâmetros
 
+```{r fig1, fig.cap="**Figura 1** caption."}
+# ![Age](../figures/hiper.png)
+knitr::include_graphics("../figures/hiper.png", error = FALSE)
+```
+
+
 ## Silhuetas das soluções ótimas
+
+```{r fig2, fig.cap="**Figura 2** caption."}
+# ![Age](../figures/sil_final.png)
+knitr::include_graphics("../figures/sil_final.png", error = FALSE)
+```
+
+```{r fig3, fig.cap="**Figura 3** caption."}
+# ![Age](../figures/sil_rej.png)
+knitr::include_graphics("../figures/sil_rej.png", error = FALSE)
+```
 
 # Observações e limitações
 
