@@ -26,4 +26,4 @@ gg <- ggplot(sil, aes(k, sil)) +
 gg.hiper <- gg +
   # geom_hline(yintercept = c(0, .5), col = c(ff.col), lty = 2) +
   geom_hline(yintercept = unique(round(final_top$sil, 2)), col = "gray60", lty = 2, lwd = .1) +
-  geom_jitter(aes(color = meth, shape = dist), width = .3)
+  geom_jitter(aes(color = meth, shape = dist), width = .3, height = 0, alpha = .6)
