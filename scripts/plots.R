@@ -14,6 +14,8 @@ theme_set(
 # )
 
 gg <- ggplot(sil, aes(k, sil)) +
+  xlab("k") +
+  ylab("Silhueta média") +
   scale_y_continuous(breaks = seq(-.1, .5, .1)) +
   scale_x_continuous(breaks = 2:10) +
   scale_color_brewer(palette = ff.pal) +
