@@ -79,7 +79,20 @@ Esta análise foi realizada utilizando-se o software `R` versão `r getRversion(
 
 ## Espaço de hiperparâmetros
 
-```{r fig1, fig.cap="**Figura 1** caption."}
+```{r fig1, fig.cap="**Figura 1** Silhuetas médias das combinações de hiperparâmetros avaliadas. Linhas tracejadas indicam os dez maiores valores de silhueta média observados."}
+# average = Método de ligação média (distância média);
+# canberra = Métrica de Canberra;
+# centroid = Método de ligação centróide;
+# complete = Método de ligação completa (distância máxima);
+# euclidian = Métrica Euclidiana (norma 2);
+# manhattan = Métrica de Manhattan (norma 1);
+# maximum = Métrica do supremo (norma infinito);
+# median = Método de ligação da mediana;
+# minkowski_0.5 = Métrica de Minkowski (norma p), p = 0.5;
+# minkowski_1.5 = Métrica de Minkowski (norma p), p = 1.5;
+# single = Método de ligação single (distância mínima);
+# ward.D = Método de ligação de Ward (sem critério de Ward 1963);
+# ward.D2 = Método de ligação de Ward (com critério de Ward 1963).
 # ![Age](../figures/hiper.png)
 knitr::include_graphics("../figures/hiper.png", error = FALSE)
 ```
