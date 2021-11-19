@@ -82,6 +82,30 @@ Esta análise foi realizada utilizando-se o software `R` versão `r getRversion(
 
 Ao todo foram incluídas `r n.hp` combinações dos três hiperparâmetros, com suas respectivas clusterizações hierárquicas geradas e silhuetas médias calculadas.
 As silhuetas médias observadas variaram entre -0.0857 e 0.461.
+
+A fim de facilitar o uso dos resultados desta análise, foi escolhido descrever os conjuntos de parâmetros de acordo com os argumentos das funções da linguagem R.
+Desta forma, a escolha de hiperparâmetros baseada nas análises de silhueta média podem ser diretamente aplicados na implementação.
+Os detalhes dos argumentos a seguir podem ser vistos na documentação das funções `dist` e `hclust`, do R base (pacote `stats`).
+
+As métricas de distância descritas nesta seção são:
+
+- **canberra**: Métrica de Canberra;
+- **euclidian**: Métrica Euclidiana (norma 2);
+- **manhattan**: Métrica de Manhattan (norma 1);
+- **maximum**: Métrica do supremo (norma infinito);
+- **minkowski_0.5**: Métrica de Minkowski (norma p), p = 0.5;
+- **minkowski_1.5**: Métrica de Minkowski (norma p), p = 1.5.
+
+Os métodos de ligação descritos nesta seção são:
+
+- **average**: Método de ligação média (distância média);
+- **centroid**: Método de ligação centróide;
+- **complete**: Método de ligação completa (distância máxima);
+- **median**: Método de ligação da mediana;
+- **single**: Método de ligação single (distância mínima);
+- **ward.D**: Método de ligação de Ward (sem critério de Ward 1963);
+- **ward.D2**: Método de ligação de Ward (com critério de Ward 1963).
+
 Como a visualização de um espaço com quatro dimensões é desafiadora, vamos inicialmente considerar as projeções em espaços bidimensionais e avaliar a variabilidade de performance mensurado pelas silhuetas médias em cada hiperparâmetro.
 
 Trocando as métricas de distância (Figura 1) a melhor performance foi obtida pela métrica maximum, com silhueta média 0.461, seguida da métrica de Minkowski com p = 0.5 (silhueta média 0.424).
@@ -138,19 +162,6 @@ final_top %>%
 ```
 
 ```{r fig4, fig.cap="**Figura 4** Silhuetas médias das combinações de hiperparâmetros avaliadas. Linhas tracejadas indicam os dez maiores valores de silhueta média observados."}
-# average = Método de ligação média (distância média);
-# canberra = Métrica de Canberra;
-# centroid = Método de ligação centróide;
-# complete = Método de ligação completa (distância máxima);
-# euclidian = Métrica Euclidiana (norma 2);
-# manhattan = Métrica de Manhattan (norma 1);
-# maximum = Métrica do supremo (norma infinito);
-# median = Método de ligação da mediana;
-# minkowski_0.5 = Métrica de Minkowski (norma p), p = 0.5;
-# minkowski_1.5 = Métrica de Minkowski (norma p), p = 1.5;
-# single = Método de ligação single (distância mínima);
-# ward.D = Método de ligação de Ward (sem critério de Ward 1963);
-# ward.D2 = Método de ligação de Ward (com critério de Ward 1963).
 # ![Age](../figures/hiper.png)
 knitr::include_graphics("../figures/hiper.png", error = FALSE)
 ```
