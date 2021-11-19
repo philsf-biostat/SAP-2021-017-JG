@@ -53,11 +53,31 @@ kable(history)
 
 # Lista de abreviaturas
 
+- AGP: receita que veio do partido ao invés de apoiadores privados (empresariais ou não)
+
 # Contexto
+
+Dados de deputados federais evangélicos, eleitos em 2018, com labels identificando quais pertencem a corporações pentecostais.
+As corporações pentecostais foram definidas como as entidades evangélicas com interesse predominantemente financeiro e/ou político, diferenciando-se das instituições religiosas tradicionais.
+
+As corporações pentecostais foram previamente identificadas na base de dados recebida.
 
 ## Objetivos
 
+Identificar a seleção de hiperparâmetros que maximiza a silhueta média (global) do agrupamento hierárquico de deputados federais evangélicos.
+
 ## Recepção e tratamento dos dados
+
+Base de dados recebida contendo características dos deputados federais eleitos em 2018.
+
+As receitas recebidas pelos deputados evangélicos foram divididas entre duas fontes: AGP e outras.
+As outras receitas foram a soma total das receitas recebidas subtraída da receita AGP.
+
+Todas as variáveis numéricas foram escalonadas para a clusterização de modo a manter os valores observados em um intervalo de amplitude de aproximada 2 unidades (**SAR-2021-011-JG-v01**).
+Todas as receitas foram escalonadas por milhão de reais.
+O número de votos será escalonado por milhão de votos.
+O posicionamento político varia de -1 a 1 e portanto já está limitado a um intervalo de amplitude 2.
+A capilaridade e os decis foram mantidos na escala original.
 
 # Metodologia
 
@@ -70,9 +90,42 @@ n.hp <- length(ks)*length(dists)*length(meths)
 
 ### Desfechos primário e secundário
 
+O desfecho primário está definido como a combinação de hiperparâmetros k, métrica de distância e método de ligação que maximiza a silhueta média do agrupamento hierárquico.
+
 ### Covariáveis
 
+As seguintes características dos deputados federais foram incluídas na análise: Receitas (divididas em AGP e outras fontes), número de votos recebidos, posicionamento político e capilaridade.
+As seguintes características dos partidos foram consideradas para inclusão na análise: decil do número de deputados eleitos e decil do número de filiados.
+
 ## Análises Estatísticas
+
+Modelos de clusters hierárquico foram ajustados aos dados numéricos.
+Foi criado um algoritmo para percorrer o espaço de hiperparâmetros e calcular a silhueta de cada combinação.
+
+Os índices de silhueta média foram visualizados em um gráfico de dispersão (silhueta por k).
+Cada ponto foi identificado pela métrica de distância e método de ligação (mapeados em cores e formas) para identificação visual da qualidade dos agrupamentos avaliados.
+A combinação ótima foi destacada textualmente, e outras combinações com valores de silhueta mais altos podem ser identificados.
+
+Hiperparâmetros a ser avaliados:
+
+- Número de clusters k: variando de 2 a 10
+- Métricas de distância
+    - Norma 2 (Euclidiana)
+    - Norma 1 (Manhattan)
+    - Norma infinito (máxima)
+    - Norma p (Minkowski) com p = 0.5 e 1.5
+    - Canberra
+- Métodos de ligação
+    - Completa (máximo)
+    - Single (mínimo)
+    - Média (UPGMA)
+    - Ward sem critério de Ward (1963)
+    - Ward com critério de Ward (1963)
+    - Mediana \*
+    - Centroide \*
+
+\* Os métodos de ligação por mediana e centroide podem gerar inversões na clusterização hierárquica e foram excluídos das recomendações.
+Sua inclusão no algoritmo de otimização terá apenas fins informativos.
 
 Esta análise foi realizada utilizando-se o software `R` versão `r getRversion()`.
 
@@ -98,7 +151,7 @@ As métricas de distância descritas nesta seção são:
 Os métodos de ligação descritos nesta seção são:
 
 - **average**: Método de ligação média (distância média);
-- **centroid**: Método de ligação centróide;
+- **centroid**: Método de ligação centroide;
 - **complete**: Método de ligação completa (distância máxima);
 - **median**: Método de ligação da mediana;
 - **single**: Método de ligação single (distância mínima);
@@ -109,9 +162,9 @@ Como a visualização de um espaço com quatro dimensões é desafiadora, vamos 
 
 Trocando as métricas de distância (Figura 1) a melhor performance foi obtida pela métrica maximum, com silhueta média 0.461, seguida da métrica de Minkowski com p = 0.5 (silhueta média 0.424).
 As métricas de Minkowski com p = 1.5 e Canberra tiveram a pior performance geral com as maiores silhuetas médias atingindo 0.383 e 0.335, respectivamente.
-As menores silhuetas médias foram observadas na métrica de Minkowski com p = 0.5 e Manhanttan (silhueta média -0.0857 e 0.00716, respectivamente).
+As menores silhuetas médias foram observadas na métrica de Minkowski com p = 0.5 e Manhattan (silhueta média -0.0857 e 0.00716, respectivamente).
 
-```{r fig1, fig.cap="**Figura 1** Distribuição da idade na população do estudo."}
+```{r fig1, fig.cap="**Figura 1** Silhuetas médias de clusters hierárquicos para diferentes métricas."}
 # ![Age](../figures/distr_age.png)
 knitr::include_graphics("../figures/bp_d.png", error = FALSE)
 ```
@@ -120,7 +173,7 @@ Trocando os métodos de ligação (Figura 2) o maior valor de silhueta foi obser
 O segundo maior valor observado foi outro empate, desta vez entre os métodos ward.D e ward.D2 (0.424).
 Os dois menores valores de silhueta foram observados com o método single (-0.0857) e mediana (-0.0628).
 
-```{r fig2, fig.cap="**Figura 2** Distribuição da idade na população do estudo."}
+```{r fig2, fig.cap="**Figura 2** Silhuetas médias para diferentes métodos de ligação."}
 # ![Age](../figures/distr_age.png)
 knitr::include_graphics("../figures/bp_m.png", error = FALSE)
 ```
@@ -128,7 +181,7 @@ knitr::include_graphics("../figures/bp_m.png", error = FALSE)
 Trocando o número k de clusters (Figura 3) o maior valor de silhueta média foi observado com k = 2 (0.461), seguido de k = 10 (0.424) e k = 9 (0.416).
 Os valores mais baixos de silhueta observados foram -0.0857 para k=8 e -0.0628 para k=6.
 
-```{r fig3, fig.cap="**Figura 3** Distribuição da idade na população do estudo."}
+```{r fig3, fig.cap="**Figura 3** Silhuetas médias para diferentes valores de k."}
 # ![Age](../figures/distr_age.png)
 knitr::include_graphics("../figures/bp_k.png", error = FALSE)
 ```
@@ -163,40 +216,47 @@ knitr::include_graphics("../figures/hiper.png", error = FALSE)
 
 De acordo com os critérios de exclusão especificados no plano analítico (**SAP-2021-017-JG-v01**) os métodos de ligação da mediana e do centroide não são recomendados pois podem gerar inversões nas clusterizações hierárquicas.
 
-Além disto, observa-se que o método de ligação ward.D era usado historicamente em versões anteriores da linguagem R e a documentação indica que o método ward.D2 é sugerido na literatura específica, além de ser a única opção em outra implementação (na função `agnes` do pacote `cluster`).
-Por estes motivos, em caso de empate entre as duas versões do método de Ward, será recomendado aqui o uso do ward.D2.
-
 O maior valor de silhueta foi observado com três conjuntos de hiperparâmetros.
-Duas destas combinações incluem métodos excluídos da avaliação (mediana e centróide).
+Duas destas combinações incluem métodos excluídos da avaliação (mediana e centroide).
 O terceiro conjunto é composto pela métrica "maximum", o método de ligação "single" e k=2.
 Esta combinação de hiperparâmetros gera uma clusterização hierárquica com silhueta média 0.4614 (Figura 5).
 As silhuetas médias de cada cluster são, respectivamente 0.47 e 0.
 Este conjunto de hiperparâmetros gerou um cluster com um deputado, e como este resultado não atende ao objetivo estabelecido, esta combinação de hiperparâmetros foi rejeitada.
 
-```{r fig5, fig.cap="**Figura 5** caption."}
+```{r fig5, fig.cap="**Figura 5** Silhuetas do cluster hierárquico gerado com métrica “maximum”, o método de ligação “single” e k=2."}
 # ![Age](../figures/sil_rej.png)
 knitr::include_graphics("../figures/sil_rej.png", error = FALSE)
 ```
 
 O segundo maior valor de silhueta média (0.4243) foi observado com dois conjuntos de hiperparâmetros.
 Ambas as combinações usaram a métrica de Minkowski com p=0.5, e k=10, diferindo apenas pelo método de ligação: um com ward.D e a outra com ward.D2.
-Optando assim pelo método de ligação ward.D2 vemos as silhuetas da clusterização hierárquica gerada com este conjunto de hiperparâmetros na figura 6.
+Optando assim pelo método de ligação ward.D2 (ver seção Observações) vemos as silhuetas da clusterização hierárquica gerada com este conjunto de hiperparâmetros na figura 6.
 Os tamanhos dos clusters gerados variaram entre 3 e 33 observações.
 As silhuetas médias dos clusters variaram entre 0.1526 e 0.7376.
 As silhuetas das observações individuais variaram entre -0.2507 e 0.8139.
 
-```{r fig6, fig.cap="**Figura 6** caption."}
+```{r fig6, fig.cap="**Figura 6** Silhuetas do cluster hierárquico gerado com métrica de Minkowski com p=0.5, o método de ligação de Ward e k=10."}
 # ![Age](../figures/sil_final.png)
 knitr::include_graphics("../figures/sil_final.png", error = FALSE)
 ```
 
 # Observações e limitações
 
+O método de ligação ward.D era usado historicamente em versões anteriores da linguagem R e a documentação indica que o método ward.D2 é sugerido na literatura específica, além de ser a única opção em outra implementação (na função `agnes` do pacote `cluster`).
+Por estes motivos, em caso de empate entre as duas versões do método de Ward, foi recomendado aqui o uso do método de ligação de Ward `ward.D2`.
+
 # Conclusões
+
+O maior valor de silhueta média foi observado com o conjunto de hiperparâmetros composto pela métrica “maximum”, o método de ligação “single” e k=2.
+Este conjunto de hiperparâmetros gerou um cluster com um deputado, e como este resultado não atende ao objetivo estabelecido, esta combinação de hiperparâmetros foi rejeitada.
+
+O segundo maior valor de silhueta média válido foi observado com a métrica de Minkowski com p=0.5, o método de ligação de Ward e k=10.
+A silhueta média deste conjunto de hiperparâmetros foi 0.4243.
 
 # Referências
 
 - **SAP-2021-017-JG-v01** -- Plano Analítico para Otimização de hiperparâmetros de clusterização hierárquica para identificação de deputados evangélicos de corporações pentecostais eleitos em 2018
+- **SAR-2021-011-JG-v01** -- Clusterização hierárquica para determinação do número ótimo de clusters de deputados federais evangélicos eleitos em 2018
 
 # Apêndice
 
