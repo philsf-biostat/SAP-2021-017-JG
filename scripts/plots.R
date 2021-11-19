@@ -3,7 +3,7 @@ library(ggplot2)
 # library(dendextend) %>% suppressPackageStartupMessages()
 
 ff.col <- "steelblue" # good for single groups scale fill/color brewer
-ff.pal <- "Spectral"    # good for binary groups scale fill/color brewer
+ff.pal <- "RdYlGn"    # good for binary groups scale fill/color brewer
 
 # Theme setting (less is more)
 theme_set(
@@ -18,8 +18,8 @@ gg <- sil %>%
     # reordenar distâncias de acordo com os shapes da paleta
     dist = fct_relevel(dist, c(
       "minkowski_0.5",
-      "maximum",
       "euclidian",
+      "maximum",
       "minkowski_1.5",
       "canberra",
       "manhattan"
@@ -30,8 +30,8 @@ gg <- sil %>%
       "complete",
       "centroid",
       "median",
-      "ward.D",
       "average",
+      "ward.D",
       "ward.D2"
     )),
   ) %>%
