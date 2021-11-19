@@ -94,8 +94,13 @@ final_top %>%
       sil = attr(final_top$sil, "label")
       ),
     digits = 2,
-    caption = "**Tabela 1** caption.  
-    caption."
+    caption = "**Tabela 1** Combinações de hiperparâmetros com os dez maiores valores de silhueta média.  
+    euclidian = Métrica Euclidiana (norma 2);
+    maximum = Métrica do supremo (norma infinito);
+    minkowski_0.5 = Métrica de Minkowski (norma p), p = 0.5;
+    minkowski_1.5 = Métrica de Minkowski (norma p), p = 1.5;
+    ward.D = Ward sem critério de Ward (1963);
+    ward.D2 = Ward com critério de Ward (1963)."
   )
 ```
 
