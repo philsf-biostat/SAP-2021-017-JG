@@ -137,6 +137,7 @@ No geral, as silhuetas médias observadas variaram entre -0.0857 e 0.461.
 A Tabela 1 mostra os dez maiores valores de silhueta, e as combinações de hiperparâmetros que os geraram.
 A Figura 4 mostra todas as `r n.hp` combinações de hiperparâmetros avaliadas.
 Foi necessário acrescentar um pequeno jitter horizontal para permitir a visualização de pontos sobrepostos, e a paleta de cores foi organizada para desenfatizar os métodos de ligação que não serão recomendados na aplicação dos resultados desta análise (centroide e mediana).
+A listagem completa de valores de silhueta média podem ser consultados [neste link](https://github.com/philsf-biostat/SAR-2021-017-JG/blob/main/figures/sil.csv).
 
 ```{r tab1}
 final_top %>%
