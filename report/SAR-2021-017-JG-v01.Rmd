@@ -1,8 +1,8 @@
 ---
-title: "[title]"
+title: "Otimização de hiperparâmetros de clusterização hierárquica para identificação de deputados evangélicos de corporações pentecostais eleitos em 2018"
 subtitle: 'DOCUMENTO: SAR-2021-017-JG-v01'
 author: '**De:** Felipe Figueiredo **Para:** Josir Gomes'
-# date: yyyy-mm-dd
+date: 2021-11-18
 output:
   html_document:
     fig_caption: yes
@@ -36,7 +36,7 @@ panderOptions('table.split.table', 160)
 
 ---
 
-**[title]**
+**Otimização de hiperparâmetros de clusterização hierárquica para identificação de deputados evangélicos de corporações pentecostais eleitos em 2018**
 
 **Histórico do documento**
 
@@ -196,7 +196,7 @@ knitr::include_graphics("../figures/sil_final.png", error = FALSE)
 
 # Referências
 
-- **SAP-2021-017-JG-v01** -- Plano Analítico para [title]
+- **SAP-2021-017-JG-v01** -- Plano Analítico para Otimização de hiperparâmetros de clusterização hierárquica para identificação de deputados evangélicos de corporações pentecostais eleitos em 2018
 
 # Apêndice
 
