@@ -80,7 +80,22 @@ Esta análise foi realizada utilizando-se o software `R` versão `r getRversion(
 
 ## Espaço de hiperparâmetros
 
-```{r fig1, fig.cap="**Figura 1** Silhuetas médias das combinações de hiperparâmetros avaliadas. Linhas tracejadas indicam os dez maiores valores de silhueta média observados."}
+```{r fig1, fig.cap="**Figura 1** Distribuição da idade na população do estudo."}
+# ![Age](../figures/distr_age.png)
+knitr::include_graphics("../figures/bp_d.png", error = FALSE)
+```
+
+```{r fig2, fig.cap="**Figura 2** Distribuição da idade na população do estudo."}
+# ![Age](../figures/distr_age.png)
+knitr::include_graphics("../figures/bp_m.png", error = FALSE)
+```
+
+```{r fig3, fig.cap="**Figura 3** Distribuição da idade na população do estudo."}
+# ![Age](../figures/distr_age.png)
+knitr::include_graphics("../figures/bp_k.png", error = FALSE)
+```
+
+```{r fig4, fig.cap="**Figura 4** Silhuetas médias das combinações de hiperparâmetros avaliadas. Linhas tracejadas indicam os dez maiores valores de silhueta média observados."}
 # average = Método de ligação média (distância média);
 # canberra = Métrica de Canberra;
 # centroid = Método de ligação centróide;
@@ -124,12 +139,12 @@ final_top %>%
 
 ## Silhuetas das soluções ótimas
 
-```{r fig2, fig.cap="**Figura 2** caption."}
+```{r fig5, fig.cap="**Figura 5** caption."}
 # ![Age](../figures/sil_final.png)
 knitr::include_graphics("../figures/sil_final.png", error = FALSE)
 ```
 
-```{r fig3, fig.cap="**Figura 3** caption."}
+```{r fig6, fig.cap="**Figura 6** caption."}
 # ![Age](../figures/sil_rej.png)
 knitr::include_graphics("../figures/sil_rej.png", error = FALSE)
 ```
