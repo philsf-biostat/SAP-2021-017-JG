@@ -162,13 +162,13 @@ knitr::include_graphics("../figures/hiper.png", error = FALSE)
 ## Silhuetas das soluções ótimas
 
 ```{r fig5, fig.cap="**Figura 5** caption."}
-# ![Age](../figures/sil_final.png)
-knitr::include_graphics("../figures/sil_final.png", error = FALSE)
+# ![Age](../figures/sil_rej.png)
+knitr::include_graphics("../figures/sil_rej.png", error = FALSE)
 ```
 
 ```{r fig6, fig.cap="**Figura 6** caption."}
-# ![Age](../figures/sil_rej.png)
-knitr::include_graphics("../figures/sil_rej.png", error = FALSE)
+# ![Age](../figures/sil_final.png)
+knitr::include_graphics("../figures/sil_final.png", error = FALSE)
 ```
 
 # Observações e limitações
