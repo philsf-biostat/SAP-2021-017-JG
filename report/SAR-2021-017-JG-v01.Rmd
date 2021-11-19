@@ -63,6 +63,7 @@ kable(history)
 
 ```{r results, include=FALSE}
 source("scripts/results.R", encoding = 'UTF-8')
+n.hp <- length(ks)*length(dists)*length(meths)
 ```
 
 ## Variáveis

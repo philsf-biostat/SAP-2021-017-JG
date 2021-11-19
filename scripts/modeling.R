@@ -1,6 +1,8 @@
 # setup -------------------------------------------------------------------
 library(cluster)
 
+ks <- 2:10
+
 dists <- c(
   "euclidian",
   "maximum",
@@ -56,7 +58,7 @@ spit_sil <- function(data = analytical, k, dist, method) {
 # library(foreach) %>% suppressPackageStartupMessages()
 # 
 # sil <- foreach(d = dists, .combine = rbind) %:%
-#   foreach(k = 2:10, .combine = rbind) %:%
+#   foreach(k = ks, .combine = rbind) %:%
 #   foreach(m = meths, .combine = rbind) %do% {
 # 
 #     # coletar a silhueta média
