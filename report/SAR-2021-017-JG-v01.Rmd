@@ -57,7 +57,7 @@ kable(history)
 
 # Contexto
 
-Dados de deputados federais evangélicos, eleitos em 2018, com labels identificando quais pertencem a coporações pentecostais.
+Dados de deputados federais evangélicos, eleitos em 2018, com labels identificando quais pertencem a corporações pentecostais.
 As corporações pentecostais foram definidas como as entidades evangélicas com interesse predominantemente financeiro e/ou político, diferenciando-se das instituições religiosas tradicionais.
 
 As corporações pentecostais foram previamente identificadas na base de dados recebida.
@@ -75,7 +75,7 @@ As outras receitas foram a soma total das receitas recebidas subtraída da recei
 
 Todas as variáveis numéricas foram escalonadas para a clusterização de modo a manter os valores observados em um intervalo de amplitude de aproximada 2 unidades (**SAR-2021-011-JG-v01**).
 Todas as receitas foram escalonadas por milhão de reais.
-O número de votos séra escalonado por milhão de votos.
+O número de votos será escalonado por milhão de votos.
 O posicionamento político varia de -1 a 1 e portanto já está limitado a um intervalo de amplitude 2.
 A capilaridade e os decis foram mantidos na escala original.
 
@@ -122,9 +122,9 @@ Hiperparâmetros a ser avaliados:
     - Ward sem critério de Ward (1963)
     - Ward com critério de Ward (1963)
     - Mediana \*
-    - Centróide \*
+    - Centroide \*
 
-\* Os métodos de ligação por mediana e centróide podem gerar inversões na clusterização hierárquica e foram excluídos das recomendações.
+\* Os métodos de ligação por mediana e centroide podem gerar inversões na clusterização hierárquica e foram excluídos das recomendações.
 Sua inclusão no algoritmo de otimização terá apenas fins informativos.
 
 Esta análise foi realizada utilizando-se o software `R` versão `r getRversion()`.
@@ -151,7 +151,7 @@ As métricas de distância descritas nesta seção são:
 Os métodos de ligação descritos nesta seção são:
 
 - **average**: Método de ligação média (distância média);
-- **centroid**: Método de ligação centróide;
+- **centroid**: Método de ligação centroide;
 - **complete**: Método de ligação completa (distância máxima);
 - **median**: Método de ligação da mediana;
 - **single**: Método de ligação single (distância mínima);
@@ -162,7 +162,7 @@ Como a visualização de um espaço com quatro dimensões é desafiadora, vamos 
 
 Trocando as métricas de distância (Figura 1) a melhor performance foi obtida pela métrica maximum, com silhueta média 0.461, seguida da métrica de Minkowski com p = 0.5 (silhueta média 0.424).
 As métricas de Minkowski com p = 1.5 e Canberra tiveram a pior performance geral com as maiores silhuetas médias atingindo 0.383 e 0.335, respectivamente.
-As menores silhuetas médias foram observadas na métrica de Minkowski com p = 0.5 e Manhanttan (silhueta média -0.0857 e 0.00716, respectivamente).
+As menores silhuetas médias foram observadas na métrica de Minkowski com p = 0.5 e Manhattan (silhueta média -0.0857 e 0.00716, respectivamente).
 
 ```{r fig1, fig.cap="**Figura 1** Distribuição da idade na população do estudo."}
 # ![Age](../figures/distr_age.png)
@@ -217,7 +217,7 @@ knitr::include_graphics("../figures/hiper.png", error = FALSE)
 De acordo com os critérios de exclusão especificados no plano analítico (**SAP-2021-017-JG-v01**) os métodos de ligação da mediana e do centroide não são recomendados pois podem gerar inversões nas clusterizações hierárquicas.
 
 O maior valor de silhueta foi observado com três conjuntos de hiperparâmetros.
-Duas destas combinações incluem métodos excluídos da avaliação (mediana e centróide).
+Duas destas combinações incluem métodos excluídos da avaliação (mediana e centroide).
 O terceiro conjunto é composto pela métrica "maximum", o método de ligação "single" e k=2.
 Esta combinação de hiperparâmetros gera uma clusterização hierárquica com silhueta média 0.4614 (Figura 5).
 As silhuetas médias de cada cluster são, respectivamente 0.47 e 0.
@@ -250,7 +250,7 @@ Por estes motivos, em caso de empate entre as duas versões do método de Ward, 
 O maior valor de silhueta média foi observado com o conjunto de hiperparâmetros composto pela métrica “maximum”, o método de ligação “single” e k=2.
 Este conjunto de hiperparâmetros gerou um cluster com um deputado, e como este resultado não atende ao objetivo estabelecido, esta combinação de hiperparâmetros foi rejeitada.
 
-O segundo maior valor de silhueta média válido foi observado com a métrica de Minkowski com p=0.5, o metodo de ligaçao de Ward e k=10.
+O segundo maior valor de silhueta média válido foi observado com a métrica de Minkowski com p=0.5, o método de ligação de Ward e k=10.
 A silhueta média deste conjunto de hiperparâmetros foi 0.4243.
 
 # Referências
