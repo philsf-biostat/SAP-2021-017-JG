@@ -81,7 +81,6 @@ Esta análise foi realizada utilizando-se o software `R` versão `r getRversion(
 ## Espaço de hiperparâmetros
 
 Ao todo foram incluídas `r n.hp` combinações dos três hiperparâmetros, com suas respectivas clusterizações hierárquicas geradas e silhuetas médias calculadas.
-As silhuetas médias observadas variaram entre -0.0857 e 0.461.
 
 A fim de facilitar o uso dos resultados desta análise, foi escolhido descrever os conjuntos de parâmetros de acordo com os argumentos das funções da linguagem R.
 Desta forma, a escolha de hiperparâmetros baseada nas análises de silhueta média podem ser diretamente aplicados na implementação.
@@ -134,7 +133,8 @@ Os valores mais baixos de silhueta observados foram -0.0857 para k=8 e -0.0628 p
 knitr::include_graphics("../figures/bp_k.png", error = FALSE)
 ```
 
-Os dez maiores valores de silhueta, e as combinações de métodos que os geraram, podem ser vistos na Tabela 1.
+No geral, as silhuetas médias observadas variaram entre -0.0857 e 0.461.
+A Tabela 1 mostra os dez maiores valores de silhueta, e as combinações de hiperparâmetros que os geraram.
 A Figura 4 mostra todas as `r n.hp` combinações de hiperparâmetros avaliadas.
 Foi necessário acrescentar um pequeno jitter horizontal para permitir a visualização de pontos sobrepostos, e a paleta de cores foi organizada para desenfatizar os métodos de ligação que não serão recomendados na aplicação dos resultados desta análise (centroide e mediana).
 
