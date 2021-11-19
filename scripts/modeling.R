@@ -26,13 +26,9 @@ meths <- c(
 
 spit_dist <- function(data = analytical[, -c(1:2)], dist) {
   p <- 2
-  if(dist == "minkowski_0.5") {
+  if(str_starts(dist, "minkowski_")) {
+    p <- str_split(dist, "_")[[1]][2]
     dist <- "minkowski"
-    p <- 0.5
-  }
-  if(dist == "minkowski_1.5") {
-    dist <- "minkowski"
-    p <- 1.5
   }
   
   # retorna a matriz de distâncias
