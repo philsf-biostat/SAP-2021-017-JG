@@ -92,6 +92,10 @@ As menores silhuetas médias foram observadas na métrica de Minkowski com p = 0
 knitr::include_graphics("../figures/bp_d.png", error = FALSE)
 ```
 
+Trocando os métodos de ligação o maior valor de silhueta foi observado simultaneamente em três métodos: centroide, mediana e single com silhueta média 0.461.
+O segundo maior valor observado foi outro empate, desta vez entre os métodos ward.D e ward.D2 (0.424).
+Os dois menores valores de silhueta foram observados com o método single (-0.0857) e mediana (-0.0628).
+
 ```{r fig2, fig.cap="**Figura 2** Distribuição da idade na população do estudo."}
 # ![Age](../figures/distr_age.png)
 knitr::include_graphics("../figures/bp_m.png", error = FALSE)
