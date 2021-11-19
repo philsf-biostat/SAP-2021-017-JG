@@ -50,3 +50,6 @@ gg.hiper <- gg +
   # geom_hline(yintercept = c(0, .5), col = c(ff.col), lty = 2) +
   geom_hline(yintercept = unique(round(final_top$sil, 2)), col = "gray60", lty = 2, lwd = .1) +
   geom_jitter(aes(color = meth, shape = dist), width = .25, height = 0)
+
+gg.silbp <- gg +
+  geom_boxplot(aes(group = k), fill = ff.col)
