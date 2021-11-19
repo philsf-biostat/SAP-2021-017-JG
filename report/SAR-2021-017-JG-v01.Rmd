@@ -84,6 +84,21 @@ Esta análise foi realizada utilizando-se o software `R` versão `r getRversion(
 knitr::include_graphics("../figures/hiper.png", error = FALSE)
 ```
 
+```{r tab1}
+final_top %>%
+  kable(
+    col.names = c(
+      k = attr(final_top$k, "label"),
+      dist = attr(final_top$dist, "label"),
+      meth = attr(final_top$meth, "label"),
+      sil = attr(final_top$sil, "label")
+      ),
+    digits = 2,
+    caption = "**Tabela 1** caption.  
+    caption."
+  )
+```
+
 
 ## Silhuetas das soluções ótimas
 

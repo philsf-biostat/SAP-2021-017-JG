@@ -84,6 +84,14 @@ spit_sil <- function(data = analytical, k, dist, method) {
 
 sil <- read_csv("figures/sil.csv", show_col_types = FALSE)
 
+sil <- sil %>%
+  set_variable_labels(
+    k = "k",
+    dist = "Métrica (distância)",
+    meth = "Método de ligação",
+    sil = "Silhueta média",
+  )
+
 # top 10 silhuetas (usadas também no plot)
 final_top <- sil %>%
   # filter(!(meth %in% c("centroid", "median")) ) %>%
