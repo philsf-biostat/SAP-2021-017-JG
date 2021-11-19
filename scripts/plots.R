@@ -15,8 +15,10 @@ theme_set(
 
 gg <- sil %>%
   mutate(
+    # reordenar distâncias de acordo com os shapes da paleta
+    dist = fct_relevel(dist, c("minkowski_0.5", "minkowski_1.5", "maximum", "euclidian", "canberra", "manhattan")),
     # reordenar métodos de acordo com as cores da paleta
-    meth = fct_relevel(meth, c("median","average", "centroid", "complete", "single", "ward.D2", "ward.D")),
+    meth = fct_relevel(meth, c("median","average", "centroid", "complete", "ward.D", "ward.D2", "single")),
   ) %>%
   ggplot(aes(k, sil)) +
   xlab(attr(sil$k, "label")) +
