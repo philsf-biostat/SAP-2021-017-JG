@@ -110,6 +110,9 @@ Os valores mais baixos de silhueta observados foram -0.0857 para k=8 e -0.0628 p
 knitr::include_graphics("../figures/bp_k.png", error = FALSE)
 ```
 
+Os dez maiores valores de silhueta, e as combinações de métodos que os geraram, podem ser vistos na Tabela 1.
+A Figura 4 mostra todas as `r n.hp` combinações de hiperparâmetros avaliadas.
+Foi necessário acrescentar um pequeno jitter horizontal para permitir a visualização de pontos sobrepostos, e a paleta de cores foi organizada para desenfatizar os métodos de ligação que não serão recomendados na aplicação dos resultados desta análise (centroide e mediana).
 
 ```{r tab1}
 final_top %>%
