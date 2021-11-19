@@ -3,7 +3,7 @@ library(ggplot2)
 # library(dendextend) %>% suppressPackageStartupMessages()
 
 ff.col <- "steelblue" # good for single groups scale fill/color brewer
-ff.pal <- "RdYlGn"    # good for binary groups scale fill/color brewer
+ff.pal <- "RdYlBu"    # good for binary groups scale fill/color brewer
 
 # Theme setting (less is more)
 theme_set(
@@ -28,8 +28,8 @@ gg <- sil %>%
     meth = fct_relevel(meth, c(
       "single",
       "complete",
-      "centroid",
       "median",
+      "centroid",
       "average",
       "ward.D",
       "ward.D2"
