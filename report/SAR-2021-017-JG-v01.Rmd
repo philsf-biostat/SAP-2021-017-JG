@@ -161,6 +161,16 @@ knitr::include_graphics("../figures/hiper.png", error = FALSE)
 
 ## Silhuetas das soluções ótimas
 
+De acordo com os critérios de exclusão especificados no plano analítico (**SAP-2021-017-JG-v01**) os métodos de ligação da mediana e do centroide não são recomendados pois podem gerar inversões nas clusterizações hierárquicas.
+
+Além disto, observa-se que o método de ligação ward.D era usado historicamente em versões anteriores da linguagem R e a documentação indica que o método ward.D2 é sugerido na literatura específica, além de ser a única opção em outra implementação (na função `agnes` do pacote `cluster`).
+Por estes motivos, em caso de empate entre as duas versões do método de Ward, será recomendado aqui o uso do ward.D2.
+
+O maior valor de silhueta foi observado com a métrica "maximum" o método de ligação "single" e k=2.
+Esta combinação de hiperparâmetros gera uma clusterização hierárquica com silhueta média 0.4614 (Figura 5).
+As silhuetas médias de cada cluster são, respectivamente 0.47 e 0.
+Este conjunto de hiperparâmetros gerou um cluster com um deputado, e como este resultado não atende ao objetivo estabelecido, esta combinação de hiperparâmetros foi rejeitada.
+
 ```{r fig5, fig.cap="**Figura 5** caption."}
 # ![Age](../figures/sil_rej.png)
 knitr::include_graphics("../figures/sil_rej.png", error = FALSE)
