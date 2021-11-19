@@ -164,7 +164,7 @@ Trocando as métricas de distância (Figura 1) a melhor performance foi obtida p
 As métricas de Minkowski com p = 1.5 e Canberra tiveram a pior performance geral com as maiores silhuetas médias atingindo 0.383 e 0.335, respectivamente.
 As menores silhuetas médias foram observadas na métrica de Minkowski com p = 0.5 e Manhattan (silhueta média -0.0857 e 0.00716, respectivamente).
 
-```{r fig1, fig.cap="**Figura 1** Distribuição da idade na população do estudo."}
+```{r fig1, fig.cap="**Figura 1** Silhuetas médias de clusters hierárquicos para diferentes métricas."}
 # ![Age](../figures/distr_age.png)
 knitr::include_graphics("../figures/bp_d.png", error = FALSE)
 ```
@@ -173,7 +173,7 @@ Trocando os métodos de ligação (Figura 2) o maior valor de silhueta foi obser
 O segundo maior valor observado foi outro empate, desta vez entre os métodos ward.D e ward.D2 (0.424).
 Os dois menores valores de silhueta foram observados com o método single (-0.0857) e mediana (-0.0628).
 
-```{r fig2, fig.cap="**Figura 2** Distribuição da idade na população do estudo."}
+```{r fig2, fig.cap="**Figura 2** Silhuetas médias para diferentes métodos de ligação."}
 # ![Age](../figures/distr_age.png)
 knitr::include_graphics("../figures/bp_m.png", error = FALSE)
 ```
@@ -181,7 +181,7 @@ knitr::include_graphics("../figures/bp_m.png", error = FALSE)
 Trocando o número k de clusters (Figura 3) o maior valor de silhueta média foi observado com k = 2 (0.461), seguido de k = 10 (0.424) e k = 9 (0.416).
 Os valores mais baixos de silhueta observados foram -0.0857 para k=8 e -0.0628 para k=6.
 
-```{r fig3, fig.cap="**Figura 3** Distribuição da idade na população do estudo."}
+```{r fig3, fig.cap="**Figura 3** Silhuetas médias para diferentes valores de k."}
 # ![Age](../figures/distr_age.png)
 knitr::include_graphics("../figures/bp_k.png", error = FALSE)
 ```
@@ -223,7 +223,7 @@ Esta combinação de hiperparâmetros gera uma clusterização hierárquica com 
 As silhuetas médias de cada cluster são, respectivamente 0.47 e 0.
 Este conjunto de hiperparâmetros gerou um cluster com um deputado, e como este resultado não atende ao objetivo estabelecido, esta combinação de hiperparâmetros foi rejeitada.
 
-```{r fig5, fig.cap="**Figura 5** caption."}
+```{r fig5, fig.cap="**Figura 5** Silhuetas do cluster hierárquico gerado com métrica “maximum”, o método de ligação “single” e k=2."}
 # ![Age](../figures/sil_rej.png)
 knitr::include_graphics("../figures/sil_rej.png", error = FALSE)
 ```
@@ -235,7 +235,7 @@ Os tamanhos dos clusters gerados variaram entre 3 e 33 observações.
 As silhuetas médias dos clusters variaram entre 0.1526 e 0.7376.
 As silhuetas das observações individuais variaram entre -0.2507 e 0.8139.
 
-```{r fig6, fig.cap="**Figura 6** caption."}
+```{r fig6, fig.cap="**Figura 6** Silhuetas do cluster hierárquico gerado com métrica de Minkowski com p=0.5, o método de ligação de Ward e k=10."}
 # ![Age](../figures/sil_final.png)
 knitr::include_graphics("../figures/sil_final.png", error = FALSE)
 ```
