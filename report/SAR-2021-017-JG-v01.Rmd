@@ -87,13 +87,14 @@ knitr::include_graphics("../figures/hiper.png", error = FALSE)
 ```{r tab1}
 final_top %>%
   kable(
+    row.names = TRUE,
     col.names = c(
       k = attr(final_top$k, "label"),
       dist = attr(final_top$dist, "label"),
       meth = attr(final_top$meth, "label"),
       sil = attr(final_top$sil, "label")
       ),
-    digits = 2,
+    digits = 4,
     caption = "**Tabela 1** Combinações de hiperparâmetros com os dez maiores valores de silhueta média.  
     euclidian = Métrica Euclidiana (norma 2);
     maximum = Métrica do supremo (norma infinito);
