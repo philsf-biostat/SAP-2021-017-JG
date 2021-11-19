@@ -19,8 +19,8 @@ gg <- sil %>%
     meth = fct_relevel(meth, c("median","average", "centroid", "complete", "single", "ward.D2", "ward.D")),
   ) %>%
   ggplot(aes(k, sil)) +
-  xlab("k") +
-  ylab("Silhueta média") +
+  xlab(attr(sil$k, "label")) +
+  ylab(attr(sil$sil, "label")) +
   scale_y_continuous(breaks = seq(-.1, .5, .1)) +
   scale_x_continuous(breaks = 2:10) +
   scale_color_brewer(palette = ff.pal) +
