@@ -150,15 +150,7 @@ final_top %>%
       sil = attr(final_top$sil, "label")
       ),
     digits = 4,
-    caption = "**Tabela 1** Combinações de hiperparâmetros com os dez maiores valores de silhueta média.  
-    euclidian = Métrica Euclidiana (norma 2);
-    centroid = Método de ligação centróide;
-    maximum = Métrica do supremo (norma infinito);
-    median = Método de ligação da mediana;
-    minkowski_0.5 = Métrica de Minkowski (norma p), p = 0.5;
-    single = Método de ligação single (distância mínima);
-    ward.D = Método de ligação de Ward (sem critério de Ward 1963);
-    ward.D2 = Método de ligação de Ward (com critério de Ward 1963)."
+    caption = "**Tabela 1** Combinações de hiperparâmetros com os dez maiores valores de silhueta média."
   )
 ```
 
