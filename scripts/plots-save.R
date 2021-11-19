@@ -14,6 +14,9 @@ units <- "cm"
 # save plots --------------------------------------------------------------
 
 ggsave(filename = "figures/hiper.png", plot = gg.hiper, height = 16, width = 16, units = units)
+ggsave(filename = "figures/bp_d.png", plot = gg.d, height = height, width = 13, units = units)
+ggsave(filename = "figures/bp_m.png", plot = gg.m, height = height, width = 13, units = units)
+ggsave(filename = "figures/bp_k.png", plot = gg.k, height = height, width = 13, units = units)
 
 png("figures/sil_final.png", width = 16, height = 14, units = units, res = 600)
 final_sil %>% plot(main="")
