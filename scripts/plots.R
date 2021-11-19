@@ -13,7 +13,12 @@ theme_set(
 #   # legend.position = "top"
 # )
 
-gg <- ggplot(sil, aes(k, sil)) +
+gg <- sil %>%
+  mutate(
+    # reordenar métodos de acordo com as cores da paleta
+    meth = fct_relevel(meth, c("median","average", "centroid", "complete", "single", "ward.D2", "ward.D")),
+  ) %>%
+  ggplot(aes(k, sil)) +
   xlab("k") +
   ylab("Silhueta média") +
   scale_y_continuous(breaks = seq(-.1, .5, .1)) +
