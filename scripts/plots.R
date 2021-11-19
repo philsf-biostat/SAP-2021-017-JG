@@ -38,6 +38,7 @@ gg <- sil %>%
   ggplot(aes(k, sil)) +
   xlab(attr(sil$k, "label")) +
   ylab(attr(sil$sil, "label")) +
+  labs(color = "Ligação", shape = "Métrica") +
   scale_y_continuous(breaks = seq(-.1, .5, .1)) +
   scale_x_continuous(breaks = 2:10) +
   scale_color_brewer(palette = ff.pal) +
@@ -48,4 +49,4 @@ gg <- sil %>%
 gg.hiper <- gg +
   # geom_hline(yintercept = c(0, .5), col = c(ff.col), lty = 2) +
   geom_hline(yintercept = unique(round(final_top$sil, 2)), col = "gray60", lty = 2, lwd = .1) +
-  geom_jitter(aes(color = meth, shape = dist), width = .3, height = 0, alpha = .6)
+  geom_jitter(aes(color = meth, shape = dist), width = .25, height = 0)
