@@ -3,7 +3,7 @@ library(ggplot2)
 # library(dendextend) %>% suppressPackageStartupMessages()
 
 ff.col <- "steelblue" # good for single groups scale fill/color brewer
-ff.pal <- "Paired"    # good for binary groups scale fill/color brewer
+ff.pal <- "Spectral"    # good for binary groups scale fill/color brewer
 
 # Theme setting (less is more)
 theme_set(
@@ -16,9 +16,24 @@ theme_set(
 gg <- sil %>%
   mutate(
     # reordenar distâncias de acordo com os shapes da paleta
-    dist = fct_relevel(dist, c("minkowski_0.5", "minkowski_1.5", "maximum", "euclidian", "canberra", "manhattan")),
+    dist = fct_relevel(dist, c(
+      "minkowski_0.5",
+      "maximum",
+      "euclidian",
+      "minkowski_1.5",
+      "canberra",
+      "manhattan"
+    )),
     # reordenar métodos de acordo com as cores da paleta
-    meth = fct_relevel(meth, c("median","average", "centroid", "complete", "ward.D", "ward.D2", "single")),
+    meth = fct_relevel(meth, c(
+      "single",
+      "complete",
+      "centroid",
+      "median",
+      "ward.D",
+      "average",
+      "ward.D2"
+    )),
   ) %>%
   ggplot(aes(k, sil)) +
   xlab(attr(sil$k, "label")) +
