@@ -22,7 +22,9 @@ meths <- c(
   "centroid"
 )
 
-spit_dist <- function(data = analytical, dist) {
+## funções de suporte: argumento data deve conter apenas variáveis contínuas
+
+spit_dist <- function(data = analytical[, -c(1:2)], dist) {
   p <- 2
   if(dist == "minkowski_0.5") {
     dist <- "minkowski"
@@ -34,17 +36,17 @@ spit_dist <- function(data = analytical, dist) {
   }
   
   # retorna a matriz de distâncias
-  dist(data[, -c(1:2)], method = dist, p = p)
+  dist(data, method = dist, p = p)
 }
 
-spit_hc <- function(data = analytical, dist, method) {
+spit_hc <- function(data = analytical[, -c(1:2)], dist, method) {
   dm <- spit_dist(data = data, dist = dist)
   
   # retorna o HC
   hclust(dm, method = method)
 }
 
-spit_sil <- function(data = analytical, k, dist, method) {
+spit_sil <- function(data = analytical[, -c(1:2)], k, dist, method) {
   dm <- spit_dist(data = data, dist = dist)
 
   hclust(dm, method = method) %>%
