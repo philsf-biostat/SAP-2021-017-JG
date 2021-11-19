@@ -35,21 +35,30 @@ gg <- sil %>%
       "ward.D2"
     )),
   ) %>%
-  ggplot(aes(k, sil)) +
-  xlab(attr(sil$k, "label")) +
+  ggplot(aes(y = sil)) +
   ylab(attr(sil$sil, "label")) +
   labs(color = "Ligação", shape = "Métrica") +
   scale_y_continuous(breaks = seq(-.1, .5, .1)) +
-  scale_x_continuous(breaks = 2:10) +
   scale_color_brewer(palette = ff.pal) +
   scale_fill_brewer(palette = ff.pal)
 
 # plots -------------------------------------------------------------------
 
 gg.hiper <- gg +
-  # geom_hline(yintercept = c(0, .5), col = c(ff.col), lty = 2) +
+  scale_x_continuous(breaks = 2:10) +
+  xlab(attr(sil$k, "label")) +
   geom_hline(yintercept = unique(round(final_top$sil, 2)), col = "gray60", lty = 2, lwd = .1) +
-  geom_jitter(aes(color = meth, shape = dist), width = .25, height = 0)
+  geom_jitter(aes(k, color = meth, shape = dist), width = .25, height = 0)
 
-gg.silbp <- gg +
-  geom_boxplot(aes(group = k), fill = ff.col)
+gg.k <- gg +
+  scale_x_continuous(breaks = 2:10) +
+  xlab(attr(sil$k, "label")) +
+  geom_boxplot(aes(k, group = k), fill = ff.col)
+
+gg.m <- gg +
+  xlab(attr(sil$meth, "label")) +
+  geom_boxplot(aes(meth), fill = ff.col)
+
+gg.d <- gg +
+  xlab(attr(sil$dist, "label")) +
+  geom_boxplot(aes(dist), fill = ff.col)
