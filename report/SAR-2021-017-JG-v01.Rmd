@@ -247,6 +247,12 @@ Por estes motivos, em caso de empate entre as duas versões do método de Ward, 
 
 # Conclusões
 
+O maior valor de silhueta média foi observado com o conjunto de hiperparâmetros composto pela métrica “maximum”, o método de ligação “single” e k=2.
+Este conjunto de hiperparâmetros gerou um cluster com um deputado, e como este resultado não atende ao objetivo estabelecido, esta combinação de hiperparâmetros foi rejeitada.
+
+O segundo maior valor de silhueta média válido foi observado com a métrica de Minkowski com p=0.5, o metodo de ligaçao de Ward e k=10.
+A silhueta média deste conjunto de hiperparâmetros foi 0.4243.
+
 # Referências
 
 - **SAP-2021-017-JG-v01** -- Plano Analítico para Otimização de hiperparâmetros de clusterização hierárquica para identificação de deputados evangélicos de corporações pentecostais eleitos em 2018
