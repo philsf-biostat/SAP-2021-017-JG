@@ -95,18 +95,15 @@ final_k <- final_top[final_row, 1]
 final_d <- final_top[final_row, 2]
 final_m <- final_top[final_row, 3]
 
-# dm <- spit_dist(dist = final_d)
-# hc <- dm %>%
-#   hclust(method = final_m)
-# analytical$cluster <- hc %>%
-#   cutree(k = final_k)
+# salvar cluster no data frame identificado
+final_hc <- spit_hc(dist = final_d, method = final_m)
+deputados$cluster <- final_hc %>% cutree(k = final_k)
 
 final_sil <- spit_sil(k = final_k, dist = final_d, method = final_m)
 
 # diagnosticos ------------------------------------------------------------
 
 # resultado final
-# final_sil <- analytical$cluster %>% silhouette( dist = dm)
 s <- final_sil %>% summary()
 
 # resultado rejeitado
